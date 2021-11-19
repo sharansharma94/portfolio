@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PowerButton from "../common/PowerButton";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -25,7 +26,9 @@ const Main = () => {
   return (
     <>
       <MainContainer>
-        <Container>Main Component</Container>
+        <Container>
+          <PowerButton />
+        </Container>
       </MainContainer>
     </>
   );
