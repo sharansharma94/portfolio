@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import Logo from "../common/Logo";
 import PowerButton from "../common/PowerButton";
+import Socials from "../common/Socials";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -28,6 +30,8 @@ const Main = () => {
       <MainContainer>
         <Container>
           <PowerButton />
+          <Logo />
+          <Socials />
         </Container>
       </MainContainer>
     </>
