@@ -49,11 +49,35 @@ const Work = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
   top: 50%;
-  left: 2rem;
+  left: calc(1rem + 2vw);
   transform: translate(-50%, -50%) rotate(90deg);
   text-decoration: none;
   z-index: 1;
 `;
+
+const BottomBar = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0%;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const About = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  z-index: 1;
+`;
+
+const Skills = styled(NavLink)`
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  z-index: 1;
+`;
+
 const Main = () => {
   return (
     <>
@@ -66,16 +90,25 @@ const Main = () => {
             target="_blank"
             to={{ pathname: "mailto:sharmasharan94@outlook.com" }}
           >
-            <h3>Say hi..</h3>
+            <h2>Say hi..</h2>
           </Contact>
 
           <Blog to="/blog">
-            <h3>Blog</h3>
+            <h2>Blog</h2>
           </Blog>
 
           <Work to="/blog">
-            <h3>Work</h3>
+            <h2>Work</h2>
           </Work>
+
+          <BottomBar>
+            <About to="/about">
+              <h2>About</h2>
+            </About>
+            <Skills to="/skills">
+              <h2>My Skill</h2>
+            </Skills>
+          </BottomBar>
         </Container>
       </MainContainer>
     </>
