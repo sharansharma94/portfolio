@@ -48,7 +48,7 @@ const Blog = styled(NavLink)`
 `;
 
 const Work = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
@@ -69,7 +69,7 @@ const BottomBar = styled.div`
 `;
 
 const About = styled(NavLink)`
-  color: ${(props) => props.theme.text};
+  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   text-decoration: none;
   z-index: 1;
 `;
@@ -104,7 +104,7 @@ const Center = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 1ms ease;
+  transition: all 1s ease;
 
   & > :first-child {
     animation: ${rotate} infinite 1.5s linear;
@@ -114,6 +114,19 @@ const Center = styled.button`
     padding-top: 1rem;
   }
 `;
+
+const DarkDiv = styled.div`
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  right: 50%;
+  height: ${(props) => (props.click ? "100%" : "0")};
+  width: ${(props) => (props.click ? "50%" : "0")};
+  background-color: black;
+  z-index: 1;
+  transition: height 0.5s ease, width 1s ease 0.5s;
+`;
+
 const Main = () => {
   const [click, setclick] = useState(false);
 
@@ -121,10 +134,11 @@ const Main = () => {
   return (
     <>
       <MainContainer>
+        <DarkDiv click={click} />
         <Container>
           <PowerButton />
-          <Logo />
-          <Socials />
+          <Logo theme={click ? "dark" : "light"} />
+          <Socials theme={click ? "dark" : "light"} />
 
           <Center click={click}>
             <YinYang
@@ -147,12 +161,12 @@ const Main = () => {
             <h2>Blog</h2>
           </Blog>
 
-          <Work to="/blog">
+          <Work to="/blog" click={click}>
             <h2>Work</h2>
           </Work>
 
           <BottomBar>
-            <About to="/about">
+            <About to="/about" click={click}>
               <h2>About</h2>
             </About>
             <Skills to="/skills">
