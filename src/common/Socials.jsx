@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Facebook, Github, Twitter, YouTube } from "../components/Svgs";
+import { darkTheme } from "../components/Themes";
 
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.color === "dark" ? darkTheme.text : darkTheme.body};
 `;
 
 const Icons = styled.div`
@@ -22,7 +24,7 @@ const Icons = styled.div`
     margin: 0%.5rem 0;
   }
 `;
-export default function Socials() {
+export default function Socials(props) {
   return (
     <Icons>
       <div>
@@ -31,7 +33,11 @@ export default function Socials() {
           target="_blank"
           to={{ pathname: "https://github.com/sharansharma94" }}
         >
-          <Github width={25} height={25} fill="currentColor" />
+          <Github
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -40,7 +46,11 @@ export default function Socials() {
           target="_blank"
           to={{ pathname: "https://www.facebook.com/sharansharma94/" }}
         >
-          <Facebook width={25} height={25} fill="currentColor" />
+          <Facebook
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -52,7 +62,11 @@ export default function Socials() {
               "https://www.youtube.com/channel/UC_4YDYVlVT0HPhse78jWXXA",
           }}
         >
-          <YouTube width={25} height={25} fill="currentColor" />
+          <YouTube
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
       <div>
@@ -61,11 +75,15 @@ export default function Socials() {
           target="_blank"
           to={{ pathname: "https://twitter.com/codingkicks" }}
         >
-          <Twitter width={25} height={25} fill="currentColor" />
+          <Twitter
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
       </div>
 
-      <Line />
+      <Line color={props.theme} />
     </Icons>
   );
 }
