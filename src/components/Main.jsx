@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import Logo from "../common/Logo";
 import PowerButton from "../common/PowerButton";
 import Socials from "../common/Socials";
+import Intro from "./Intro";
 import { YinYang } from "./Svgs";
 
 const MainContainer = styled.div`
@@ -174,6 +175,7 @@ const Main = () => {
             </Skills>
           </BottomBar>
         </Container>
+        {click ? <Intro /> : null}
       </MainContainer>
     </>
   );
