@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Profile } from "./Svgs";
 
-const Box = styled.div`
+import { motion } from "framer-motion";
+
+const Box = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -65,7 +67,11 @@ const Text = styled.div`
 `;
 export default function Intro() {
   return (
-    <Box>
+    <Box
+      initial={{ height: 0 }}
+      animate={{ height: "55vh" }}
+      transition={{ type: "spring", duration: 2, delay: 1 }}
+    >
       <SubBox>
         <Text>
           <h1>Hi,</h1>
@@ -74,7 +80,13 @@ export default function Intro() {
         </Text>
       </SubBox>
       <SubBox>
-        <Profile className="pic" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2 }}
+        >
+          <Profile className="pic" />
+        </motion.div>
       </SubBox>
     </Box>
   );
