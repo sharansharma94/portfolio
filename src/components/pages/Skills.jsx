@@ -1,6 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme } from "../Themes";
 import { Design, Develope } from "../Svgs";
+import PowerButton from "../../common/PowerButton";
+import Logo from "../../common/Logo";
+import Socials from "../../common/Socials";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -24,18 +27,38 @@ const Main = styled.div`
   font-family: "Ubuntu Mono", monospace;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  &:hover {
+    color: ${(props) => props.theme.body};
+    background-color: ${(props) => props.theme.text};
+  }
+`;
+
+const Title = styled.div`
+  display: flex;
   justify-content: center;
+  align-items: center;
+
+  font-size: calc(1em + 1vw);
 `;
 const Skills = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Box>
+        <PowerButton />
+        <Logo theme="light" />
+        <Socials theme="light" />
+
         <Main>
-          <Design width={40} height={40} />
-          Designer
+          <Title>
+            <Design width={40} height={40} />
+            Designer
+          </Title>
         </Main>
         <Main>
-          <Develope width={40} height={40} /> Developer
+          <Title>
+            <Develope width={40} height={40} /> Developer
+          </Title>
         </Main>
       </Box>
       ;
