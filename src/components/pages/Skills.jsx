@@ -4,6 +4,9 @@ import { Design, Develope } from "../Svgs";
 import PowerButton from "../../common/PowerButton";
 import Logo from "../../common/Logo";
 import Socials from "../../common/Socials";
+import BigTitle from "../../common/BigTitle";
+import ParticleComponent from "../../common/Particles";
+import ParticlesComponent from "../../common/Particles";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -33,14 +36,41 @@ const Main = styled.div`
     background-color: ${(props) => props.theme.text};
   }
 `;
-
-const Title = styled.div`
+const Title = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: calc(1em + 1vw);
+
+  ${Main}:hover & {
+    & > * {
+      fill: ${(props) => props.theme.body};
+    }
+  }
+
+  & > *:first-child {
+    margin-right: 1rem;
+  }
 `;
+const Description = styled.div`
+  color: ${(props) => props.theme.text};
+  font-size: calc(0.6em + 1vw);
+  padding: 0.5rem 0;
+
+  ${Main}:hover & {
+    color: ${(props) => props.theme.body};
+  }
+
+  strong {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  ul,
+  p {
+    margin-left: 2rem;
+  }
+`;
+
 const Skills = () => {
   return (
     <ThemeProvider theme={lightTheme}>
@@ -48,18 +78,50 @@ const Skills = () => {
         <PowerButton />
         <Logo theme="light" />
         <Socials theme="light" />
-
+        <ParticlesComponent theme="light" />
         <Main>
           <Title>
-            <Design width={40} height={40} />
-            Designer
+            <Design width={40} height={40} /> Designer
           </Title>
+          <Description>
+            I love to create design which speaks, Keep it clean, minimal and
+            simple.
+          </Description>
+          <Description>
+            <strong>I like to Design</strong>
+            <ul>
+              <li>Web Design</li>
+              <li>Mobile Apps</li>
+            </ul>
+          </Description>
+          <Description>
+            <strong>Tools</strong>
+            <ul>
+              <li>Figma</li>
+            </ul>
+          </Description>
         </Main>
         <Main>
           <Title>
-            <Develope width={40} height={40} /> Developer
+            <Develope width={40} height={40} /> Frontend Developer
           </Title>
+          <Description>
+            I value business or brand for which i'm creating, thus i enjoy
+            bringing new ideas to life.
+          </Description>
+          <Description>
+            <strong>Skills</strong>
+            <p>
+              Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase
+              etc.
+            </p>
+          </Description>
+          <Description>
+            <strong>Tools</strong>
+            <p>VScode, Github, Codepen etc.</p>
+          </Description>
         </Main>
+        <BigTitle text="SKILLS" top="80%" right="30%" />
       </Box>
       ;
     </ThemeProvider>
