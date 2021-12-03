@@ -5,7 +5,6 @@ import PowerButton from "../../common/PowerButton";
 import Logo from "../../common/Logo";
 import Socials from "../../common/Socials";
 import BigTitle from "../../common/BigTitle";
-import ParticleComponent from "../../common/Particles";
 import ParticlesComponent from "../../common/Particles";
 
 const Box = styled.div`
@@ -27,6 +26,7 @@ const Main = styled.div`
   height: 60vh;
   z-index: 3;
   line-height: 1.5;
+  cursor: pointer;
   font-family: "Ubuntu Mono", monospace;
   display: flex;
   flex-direction: column;
@@ -41,13 +41,11 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1em + 1vw);
-
   ${Main}:hover & {
     & > * {
       fill: ${(props) => props.theme.body};
     }
   }
-
   & > *:first-child {
     margin-right: 1rem;
   }
@@ -56,11 +54,9 @@ const Description = styled.div`
   color: ${(props) => props.theme.text};
   font-size: calc(0.6em + 1vw);
   padding: 0.5rem 0;
-
   ${Main}:hover & {
     color: ${(props) => props.theme.body};
   }
-
   strong {
     margin-bottom: 1rem;
     text-transform: uppercase;
