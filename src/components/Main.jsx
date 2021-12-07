@@ -167,7 +167,7 @@ const Main = () => {
             </motion.h2>
           </Blog>
 
-          <Work to="/blog" click={click}>
+          <Work to="/work" click={click}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Work
             </motion.h2>
