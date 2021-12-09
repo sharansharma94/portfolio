@@ -4,7 +4,7 @@ export const Worked = [
     name: "Agency Landing Page",
     description:
       "It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
-    tags: ["react"],
+    tags: ["react", "node", "es6"],
 
     demo: "",
     github: "",
