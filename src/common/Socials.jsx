@@ -22,7 +22,7 @@ const Icons = styled.div`
   z-index: 3;
 
   & > *:not(:last-child) {
-    margin: 0% 0.5rem 0;
+    margin: 0.5rem 0;
   }
 `;
 export default function Socials(props) {
