@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import img from "../../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg";
@@ -8,7 +9,7 @@ import Socials from "../../common/Socials";
 import { Blogs } from "../../data/BlogData";
 import BlogComponent from "../BlogComponent";
 
-const MainContainer = styled.div`
+const MainContainer = styled(motion.div)`
   background-image: url(${img});
   background-size: cover;
   background-repeat: no-repeat;
@@ -37,6 +38,18 @@ const Grid = styled.div`
   grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
 `;
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    },
+  },
+};
 export default function Blog() {
   const [numbers, setNumbers] = useState(0);
 
@@ -46,7 +59,15 @@ export default function Blog() {
   }, []);
 
   return (
-    <MainContainer>
+    <MainContainer
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit={{
+        opacity: 0,
+        transition: { duration: 0.5 },
+      }}
+    >
       <Container>
         <Logo />
         <PowerButton />
