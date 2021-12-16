@@ -54,6 +54,10 @@ const Tag = styled.span`
   padding-right: 0.5rem;
 `;
 
+const Date = styled.span`
+  padding: 0.5rem 0;
+`;
+
 const Item = {
   hidden: {
     scale: 0,
@@ -77,6 +81,7 @@ export default function BlogComponent(props) {
         <HashTag>
           {React.Children.toArray(tags.map((tag) => <Tag>#{tag}</Tag>))}
         </HashTag>
+        <Date>{date}</Date>
       </Box>
     </Container>
   );
