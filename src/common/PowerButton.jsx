@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { PowerBtn } from "../components/Svgs";
+import constants from "../config/constants";
 const Power = styled.button`
   position: fixed;
   top: 2rem;
@@ -36,7 +37,7 @@ const Power = styled.button`
 export default function PowerButton() {
   return (
     <Power>
-      <NavLink to="/">
+      <NavLink to={constants.ROOT_PATH}>
         <PowerBtn width={30} height={30} fill="currenrColor" />
       </NavLink>
     </Power>
