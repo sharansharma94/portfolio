@@ -10,6 +10,8 @@ import Skills from "./components/pages/Skills";
 import { AnimatePresence } from "framer-motion";
 import SoundBar from "./common/SoundBar";
 
+import constants from "./config/constants";
+
 function App() {
   const location = useLocation();
   return (
@@ -19,11 +21,11 @@ function App() {
         <SoundBar />
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/blog" component={Blog} />
-            <Route exact path="/work" component={Work} />
-            <Route exact path="/skills" component={Skills} />
+            <Route exact path={constants.ROOT_PATH} component={Main} />
+            <Route exact path={constants.ABOUT_PATH} component={About} />
+            <Route exact path={constants.BLOG_PATH} component={Blog} />
+            <Route exact path={constants.WORK_PATH} component={Work} />
+            <Route exact path={constants.SKILLS_PATH} component={Skills} />
           </Switch>
         </AnimatePresence>
       </ThemeProvider>
