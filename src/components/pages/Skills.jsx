@@ -15,6 +15,7 @@ const Box = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Main = styled.div`
@@ -77,28 +78,6 @@ const Skills = () => {
         <ParticlesComponent theme="light" />
         <Main>
           <Title>
-            <Design width={40} height={40} /> Designer
-          </Title>
-          <Description>
-            I love to create design which speaks, Keep it clean, minimal and
-            simple.
-          </Description>
-          <Description>
-            <strong>I like to Design</strong>
-            <ul>
-              <li>Web Design</li>
-              <li>Mobile Apps</li>
-            </ul>
-          </Description>
-          <Description>
-            <strong>Tools</strong>
-            <ul>
-              <li>Figma</li>
-            </ul>
-          </Description>
-        </Main>
-        <Main>
-          <Title>
             <Develope width={40} height={40} /> Frontend Developer
           </Title>
           <Description>
@@ -115,6 +94,23 @@ const Skills = () => {
           <Description>
             <strong>Tools</strong>
             <p>VScode, Github, Codepen etc.</p>
+          </Description>
+        </Main>
+        <Main>
+          <Title>
+            <Design width={40} height={40} /> Backend Developer
+          </Title>
+          <Description>
+            I love to create system which are scalable, readable and reliable.
+            strong believer in microservices and kubernetes.
+          </Description>
+          <Description>
+            <strong>Skills</strong>
+            <p>Node js, Python, Golang</p>
+          </Description>
+          <Description>
+            <strong>Extra</strong>
+            <p>Git, Kubernetes, Docker, MongoDB, AWS, GCP </p>
           </Description>
         </Main>
         <BigTitle text="SKILLS" top="80%" right="30%" />
